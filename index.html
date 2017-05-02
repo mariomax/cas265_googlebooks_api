@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>CAS265 Google Books API Practice</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    
+    <body>
+        <h1></h1>
+        <h2></h2>
+        <img src="" id="thumbNail">
+        <p></p>
+        Author: <span id="authorName"></span>
+        <p></p>
+        Description: <span id="bookDescription"></span>
+        <p></p>
+        Page count: <span id="pageCount"></span>
+        
+        
+        
+        
+        
+        
+        
+        <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://www.googleapis.com/books/v1/volumes?q=isbn:0061171115", false);
+        xhr.send();
+        console.log(xhr.status); // if this returns 200, the server recognizes and responds!
+        var bookObject = JSON.parse(xhr.responseText);
+        console.log(bookObject);
+            
+        $("title").text(bookObject.items[0].volumeInfo.title);
+        $("h1").text(bookObject.items[0].volumeInfo.title);
+        $("h2").text(bookObject.items[0].volumeInfo.subtitle);
+        $("#authorName").text(bookObject.items[0].volumeInfo.authors);
+        $("#thumbNail").attr("src", bookObject.items[0].volumeInfo.imageLinks.thumbnail);
+        $("#bookDescription").text(bookObject.items[0].volumeInfo.description);
+        $("#pageCount").text(bookObject.items[0].volumeInfo.pageCount);
+            
+    </script>
+    </body>
+    
+</html>
