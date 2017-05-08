@@ -3,30 +3,59 @@
 
     <head>
         <meta charset="utf-8">
-        <title>CAS265 Google Books API Practice</title>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+        <title></title>
+        
+        <!-- Google fonts. Headline then Body font. -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet"> 
+        
+        <!-- jQuery Library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+        <!-- Stylesheets in the css folder. -->
+        <link href="css/reset.css" rel="stylesheet">
+        <link href="css/helper.css" rel="stylesheet">
+        <link href="css/grid.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        
     </head>
     
     <body>
-        <h1></h1>
-        <h2></h2>
-        <img src="" id="thumbNail">
-        <p></p>
-        Author: <span id="authorName"></span>
-        <p></p>
-        Description: <span id="bookDescription"></span>
-        <p></p>
-        Page count: <span id="pageCount"></span>
+        <header>
+            <h1></h1>
+            <h2></h2>
+            <h3></h3>
+        </header>
         
+        <!-- <hr> hard return HTML5 { @color2; width: 80%; } This is the small line after the textSnippet. -->
+        <hr>
         
-        
-        
-        
-        
-        
+        <section class="section group">
+            <div class="col span_1_of_12">&nbsp;</div>
+            <div class="col span_3_of_12 bookCover"><img src="" id="thumbNail" alt="book cover"></div>
+            <div class="col span_7_of_12">
+            
+                <p id="bookDescription"></p>
+                
+            <a><h4 class="point" id="revealInfo">More info:</h4></a>
+                <div>
+                    <ul class="hidden" id="addInfo">
+                        <li>Author: <span id="authorName"></span></li>
+                        <li>Page count: <span id="pageCount"></span></li>
+                        <li>ISBN: <span id="isbn"></span></li>
+                        <li>Publisher: <span id="publisher"></span></li>
+                        <li>Publish date: <span id="publishDate"></span></li>
+                        <li>Rated: <span id="mRating"></span></li>
+                        <li>File under: <span id="categories"></span></li>
+                    </ul>
+                </div>  
+            </div>
+        </section>
+
         <script>
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://www.googleapis.com/books/v1/volumes?q=isbn:0061171115", false);
+        xhr.open("GET", "https://www.googleapis.com/books/v1/volumes?q=isbn:1419714007", false);
         xhr.send();
         console.log(xhr.status); // if this returns 200, the server recognizes and responds!
         var bookObject = JSON.parse(xhr.responseText);
@@ -35,10 +64,22 @@
         $("title").text(bookObject.items[0].volumeInfo.title);
         $("h1").text(bookObject.items[0].volumeInfo.title);
         $("h2").text(bookObject.items[0].volumeInfo.subtitle);
+        $("h3").text(bookObject.items[0].searchInfo.textSnippet);
         $("#authorName").text(bookObject.items[0].volumeInfo.authors);
         $("#thumbNail").attr("src", bookObject.items[0].volumeInfo.imageLinks.thumbnail);
         $("#bookDescription").text(bookObject.items[0].volumeInfo.description);
         $("#pageCount").text(bookObject.items[0].volumeInfo.pageCount);
+        $("#publisher").text(bookObject.items[0].volumeInfo.publisher);
+        $("#publishDate").text(bookObject.items[0].volumeInfo.publishedDate);
+        $("#isbn").text(bookObject.items[0].volumeInfo.industryIdentifiers[0].identifier);
+        $("#mRating").text(bookObject.items[0].volumeInfo.maturityRating);
+        $("#categories").text(bookObject.items[0].volumeInfo.categories);
+            
+         $("#revealInfo").on("click",
+            function () {
+                $("#addInfo").toggle();
+            }                    
+        );
             
     </script>
     </body>
