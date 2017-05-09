@@ -4,13 +4,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+        <!-- Empty tags! -->
         <title></title>
         
         <!-- Google fonts. Headline then Body font. -->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet"> 
         
-        <!-- jQuery Library -->
+        <!-- jQuery Library script. -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         
         <!-- Stylesheets in the css folder. -->
@@ -22,7 +23,27 @@
     </head>
     
     <body>
+        <ul>
+            <li><a href="index.html?isbn=1419714007">Star Wars Art: Posters</a></li>
+            <li><a href="index.html?isbn=1484704711">Star Wars Art: The Original Trilogy</a></li>
+            <li><a href="index.html?isbn=0345494768">The Making of Star Wars</a></li>
+            <li><a href="index.html?isbn=0810995891">Star Wars Art: Visions</a></li>
+            <li><a href="index.html?isbn=1419707744">Star Wars Storyboards: The Original Trilogy</a></li>
+            <li><a href="index.html?isbn=1465435506">LEGO Star Wars Character Encyclopedia</a></li>
+            <li><a href="index.html?isbn=1419708651">Star Wars Art: Concept Limited Edition</a></li>
+            <li><a href="index.html?isbn=0789434814">Star Wars: The Visual Dictionary</a></li>
+            <li><a href="index.html?isbn=9780345477620">Star Wars: The Essential Guide to Warfare</a></li>
+            <li><a href="index.html?isbn=1465452583">Star Wars Year by Year</a></li>
+        </ul>
+        
+        <form action="index.html" method="get">
+            Search by ISBN (ISBN-10 or ISBN-13)
+            <input type="text" name="isbn">
+            <button type="submit">Search</button>
+        </form>
+        
         <header>
+            <!-- Look at these empty HTML5 tags! CrAzY!!! -->
             <h1></h1>
             <h2></h2>
             <h3></h3>
@@ -31,13 +52,17 @@
         <!-- <hr> hard return HTML5 { @color2; width: 80%; } This is the small line after the textSnippet. -->
         <hr>
         
+        <!-- Using grid.css here. -->
         <section class="section group">
+            <!-- Empty column. -->
             <div class="col span_1_of_12">&nbsp;</div>
+            <!-- Image column. -->
             <div class="col span_3_of_12 bookCover"><img src="" id="thumbNail" alt="book cover"></div>
+            <!-- Info column. -->
             <div class="col span_7_of_12">
             
                 <p id="bookDescription"></p>
-                
+            <!-- Hover on "More Info" to reveal in JavaScript -->    
             <a><h4 class="point" id="revealInfo">More info:</h4></a>
                 <div>
                     <ul class="hidden" id="addInfo">
@@ -56,7 +81,11 @@
 
         <script>
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://www.googleapis.com/books/v1/volumes?q=isbn:1419714007", false);
+            // 1419714007 previous isbn.
+            // JavaScript line pulls the querystring from the URL of the page and only pulls the part of the URL after the = sign.
+        var queryString = document.URL.substring( document.URL.indexOf('=') + 1 );
+            // The next line calls the API. Append the value of queryString to the end of teh API call so it knows which book to pull info for.
+        xhr.open("GET", "https://www.googleapis.com/books/v1/volumes?q=isbn:" + queryString , false);
         xhr.send();
         console.log(xhr.status); // if this returns 200, the server recognizes and responds!
         var bookObject = JSON.parse(xhr.responseText);
