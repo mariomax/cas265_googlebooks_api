@@ -45,6 +45,8 @@ body {
         color: @color3;
         font-family: @headlineFont;
         font-size: 1.5em;
+        max-width: 80%;
+        margin: auto;
         line-height: 1.2em;
         padding: .5em;
         text-align: center;
@@ -69,15 +71,19 @@ body {
     ul {
         li {
             color: @lightColor;
-        font-family: @bodyFont;
-        line-height: 1em;
-        padding: .5em 1em;
+            font-family: @bodyFont;
+            line-height: 1em;
+            padding: .5em 1em;
+            
         }
     }
 
     /* This next item removes the underline from the hyperlinks */
     a {
         text-decoration: none;
+        color: @color3;
+        font-family: @bodyFont;
+        padding: .5em 1em;
     }
 }
 
