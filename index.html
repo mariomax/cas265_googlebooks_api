@@ -42,12 +42,13 @@
                 <div>
                     <ul class="hidden" id="addInfo">
                         <li>Author: <span id="authorName"></span></li>
-                        <li>Page count: <span id="pageCount"></span></li>
-                        <li>ISBN: <span id="isbn"></span></li>
                         <li>Publisher: <span id="publisher"></span></li>
                         <li>Publish date: <span id="publishDate"></span></li>
+                        <li>Page count: <span id="pageCount"></span></li>
                         <li>Rated: <span id="mRating"></span></li>
                         <li>File under: <span id="categories"></span></li>
+                        <li>ISBN: <span id="isbn"></span></li>
+                        <li>ISBN 13: <span id="isbn13"></span></li>
                     </ul>
                 </div>  
             </div>
@@ -72,6 +73,7 @@
         $("#publisher").text(bookObject.items[0].volumeInfo.publisher);
         $("#publishDate").text(bookObject.items[0].volumeInfo.publishedDate);
         $("#isbn").text(bookObject.items[0].volumeInfo.industryIdentifiers[0].identifier);
+        $("#isbn13").text(bookObject.items[0].volumeInfo.industryIdentifiers[1].identifier);
         $("#mRating").text(bookObject.items[0].volumeInfo.maturityRating);
         $("#categories").text(bookObject.items[0].volumeInfo.categories);
             
