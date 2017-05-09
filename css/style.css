@@ -94,6 +94,12 @@ body a {
   font-family: 'Roboto Slab', serif;
   padding: .5em 1em;
 }
+body form {
+  clear: both;
+  color: #ed2e28;
+  font-family: 'Roboto Slab', serif;
+  padding: .5em 2em;
+}
 /* This fills each <div> with the image */
 img {
   width: 100%;
