@@ -25,16 +25,15 @@ body {
         font-family: @headlineFont;
         font-size: 2.2em;
         font-weight: 600;
-        margin-top: .5em;
-        padding: .4em 0;
+        margin: .5em;
         text-align: center;
     }
 
     /* Subtitle */
     h2 {
-        color: @color3;
+        color: @color2;
         font-family: @headlineFont;
-        font-size: 1.5em;
+        font-size: 2.5em;
         line-height: 1.2em;
         padding: .4em;
         text-align: center;
@@ -57,10 +56,28 @@ body {
         font-family: @headlineFont;
         font-size: 1.5em;
         line-height: 1.2em;
+        padding: 1em;
+        text-align: center;
+    }
+    
+    h5 {
+        color: @color3;
+        font-family: @headlineFont;
+        font-size: 1.5em;
+        line-height: 1.2em;
         padding: .5em;
         text-align: left;
     }
 
+    h6 {
+        color: @color4;
+        font-family: @headlineFont;
+        font-size: 1.5em;
+        margin-top: -10px;
+        padding-bottom: 15px;
+        text-align: center;
+    }
+    
     p {
         color: @lightColor;
         font-family: @bodyFont;
@@ -77,26 +94,22 @@ body {
             
         }
     }
-
-    /* This next item removes the underline from the hyperlinks */
-    a {
-        text-decoration: none;
-        color: @color3;
-        font-family: @bodyFont;
-        padding: .5em 1em;
-    }
     
     form {
-        clear: both;
-        color: @color2;
-        font-family: @bodyFont;
-        padding: .5em 2em;
+        P {
+            clear: both;
+            color: @color2;
+            font-family: @bodyFont;
+            margin-top: 1.5em;   
+        }
     }
 }
 
-header {
-    
-  
+footer {
+    p {
+        color: @color2;
+        text-align: center;
+    }  
 }
 
 /* This fills each <div> with the image */
@@ -113,8 +126,23 @@ hr {
     
 }
 
+.top10 {
+    display: block;
+    padding-left: 1em;
+    p {
+        padding: 0;
+        font-size: .9em;
+    }
+    a {
+        text-decoration: none;
+        color: @color3;
+        font-family: @bodyFont;
+        padding: .2em; 
+    }
+}
+
 .bookCover {
-    padding: 1.5em;
+    padding: .5em;
    
 }
 
