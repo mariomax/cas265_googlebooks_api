@@ -10,9 +10,19 @@
     <!-- Google fonts. Headline then Body font. -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
+    
+    <!-- Font Awesome! -->
+    <script src="https://use.fontawesome.com/ef441b60f1.js"></script>
 
     <!-- jQuery Library script. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <!-- Include jQuery (Dependency of jQuery ScrollTo)
+    <script src="https://www.wario.work/jquery-scrollto/vendor/jquery.js"></script>
+    
+    Include jQuery ScrollTo.
+    <script src="https://www.wario.work/jquery-scrollto/lib/jquery-scrollto.js"></script>
+    -->
 
     <!-- Stylesheets in the css folder. -->
     <link href="css/reset.css" rel="stylesheet">
@@ -22,40 +32,43 @@
 
 </head>
 
-<header>
-    <h1>A Google Books API Exercise:</h1>
-    <h1><span style="font-size: .8em; margin: 0;">Search Engine Lite</span></h1>
-</header>
-
 <body>
+
+    <header>
+        <h1>Google Books API:</h1>
+        <p>A Search Engine Lite Exercise</p>
+    </header>
+
     <!-- Using grid.css here. -->
     <section class="section group">
-        <div class="col span_4_of_12 top10">
-            <img src="images/star_wars_graphic.jpg" alt="star wars title" width="300px" height="181px">
-            <h6>Our Top 10 Selections:</h6>
-            <p><a href="index.html?isbn=1419714007">Star Wars Art: Posters</a></p>
-            <p><a href="index.html?isbn=0810995891">Star Wars Art: Visions</a></p>
-            <p><a href="index.html?isbn=1419708651">Star Wars Art: Concept Limited Edition</a></p>
-            <p><a href="index.html?isbn=0789434814">Star Wars: The Visual Dictionary</a></p>
-            <p><a href="index.html?isbn=0756692482">Star Wars: The Ultimate Visual Guide</a></p>
-            <p><a href="index.html?isbn=9780345477620">Star Wars: The Essential Guide to Warfare</a></p>
-            <p><a href="index.html?isbn=0345494768">The Making of Star Wars</a></p>
-            <p><a href="index.html?isbn=1419707744">Star Wars Storyboards: The Original Trilogy</a></p>
-            <p><a href="index.html?isbn=1465452583">Star Wars Year by Year</a></p>
-            <p><a href="index.html?isbn=1465435506">LEGO Star Wars Character Encyclopedia</a></p>
-
-
+        
+        <!-- The .top10 class styles the following links - not as <li> items! -->
+        <div class="col span_3_of_12">
+            <div class="top10">
+                <img src="images/star_wars_graphic.jpg" alt="star wars title" width="300" height="181">
+                <h6>Our Top 10 Art books<br>Select a title for info:</h6>
+            </div>
+            <div class="bookList">
+                <a href="index.html?isbn=1419714007" onclick="scroll('topSection');">Star Wars Art: Posters</a>
+                <a href="index.html?isbn=0810995891">Star Wars Art: Visions</a>
+                <a href="index.html?isbn=1419708651">Star Wars Art: Concept Limited Edition</a>
+                <a href="index.html?isbn=0789434814">Star Wars: The Visual Dictionary</a>
+                <a href="index.html?isbn=0756692482">Star Wars: The Ultimate Visual Guide</a>
+                <a href="index.html?isbn=9780345477620">Star Wars: The Essential Guide to Warfare</a>
+                <a href="index.html?isbn=0345494768">The Making of Star Wars</a>
+                <a href="index.html?isbn=1419707744">Star Wars Storyboards: The Original Trilogy</a>
+                <a href="index.html?isbn=1465452583">Star Wars Year by Year</a>
+                <a href="index.html?isbn=1465435506">LEGO Star Wars Character Encyclopedia</a>
+            </div>
+            <!-- The form for the user to enter an ISBN into. -->
             <form action="index.html" method="get">
-                <p>Search by ISBN (ISBN-10 or ISBN-13)</p>
+                <p>Search by ISBN-10 or ISBN-13</p>
                 <input type="text" name="isbn">
                 <button type="submit">Search</button>
             </form>
         </div>
-<!--
-    </section>
-    <section class="section group">
--->
-        <div class="col span_8_of_12">
+        
+        <div class="col span_9_of_12"  id="topSection">
             <!-- Look at these empty HTML5 tags! CrAzY!!! -->
             <h2></h2>
             <h3></h3>
@@ -63,19 +76,22 @@
 
             <!-- <hr> hard return HTML5 { @color2; width: 80%; } This is the small line after the textSnippet. -->
             <hr>
-
+            
+            <!-- Blank column. -->
             <div class="col span_1_of_12">&nbsp;</div>
+            <!-- Image column. -->
             <div class="col span_2_of_12">
-                <!-- Image column. -->
                 <img src="" id="thumbNail" alt="book cover" class="bookCover">
             </div>
+            <!-- Info column. -->
             <div class="col span_8_of_12">
-                <!-- Info column. -->
                 <p id="bookDescription"></p>
+                <!-- Another little line break. -->
+                <hr>
                 <!-- Hover on "More Info" to reveal in JavaScript -->
-                <a>
-                    <h5 class="point" id="revealInfo">More info:</h5>
-                </a>
+                <a href="#revealInfo" class="point" id="revealInfo"><h5 >More info:</h5></a>
+                <!-- This section is hidden until user clicks the h5 tag above.
+                The IDs below are pulling info from the API database. -->
                 <ul class="hidden" id="addInfo">
                     <li>Author: <span id="authorName"></span></li>
                     <li>Publisher: <span id="publisher"></span></li>
@@ -87,13 +103,19 @@
                     <li>ISBN 13: <span id="isbn13"></span></li>
                 </ul>
             </div>
+            
         </div>
     </section>
 
     <footer>
-        <p>Thanks for visiting! Feel free to email us if you're looking for a particular title.</p>
-        <p>Copyright &copy; <span id="cYear"></span> Star Wars Tomes, Inc.</p>
-
+        <p>Please, contact us if you are seeking a title you can't find. Thanks!<br>
+        <!-- Functioning email contact. -->
+        <a href="mailto:mariojames211@gmail.com" target="_top"><i class="fa fa-envelope-o" aria-hidden="true"></i>&nbsp;Email</a>
+        &nbsp; 
+        <!-- Functioning phone contact. -->
+        <a href="tel:+5033513640"><i class="fa fa-phone-square" aria-hidden="true"></i>
+        &nbsp;503-351-3640</a><br>
+        Copyright &copy; <span id="cYear"></span> Google Books API</p>
     </footer>
 
     <script>
@@ -122,6 +144,18 @@
         $("#isbn13").text(bookObject.items[0].volumeInfo.industryIdentifiers[1].identifier);
         $("#mRating").text(bookObject.items[0].volumeInfo.maturityRating);
         $("#categories").text(bookObject.items[0].volumeInfo.categories);
+
+        // $('#topSection').ScrollTo();
+        // There are two scripts in the head that are using this.
+        // However, there are "Get" errors in the console. 
+        
+        document.getElementById("topSection").addEventListener("click", scrollWin); 
+        
+        function scrollWin() {
+            $('html, body').animate({
+                scrollTop: $("#topSection").offset().top
+                }, 1000);
+            }
 
         $("#revealInfo").on("click",
             function() {

@@ -36,27 +36,43 @@ plus white and black
 body {
   font-size: 16px;
   background-color: #000000;
-  /* Title */
-  /* Subtitle */
-  /* jQuery object textSnippet */
 }
-body h1 {
+body header {
+  /* Hero Image */
+  background-image: url(../images/purple_space.jpeg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 200px;
+  /* Title */
+}
+body header h1 {
   color: #ffffff;
   font-family: 'Play', sans-serif;
   font-size: 2.2em;
   font-weight: 600;
-  margin: .5em;
+  padding-top: 60px;
   text-align: center;
 }
-body h2 {
-  color: #ed2e28;
+body header p {
+  color: #ffffff;
+  font-family: 'Play', sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+}
+body section {
+  /* Subtitle */
+  /* jQuery object textSnippet */
+}
+body section h2 {
+  color: #c22024;
   font-family: 'Play', sans-serif;
   font-size: 2.5em;
   line-height: 1.2em;
   padding: .4em;
   text-align: center;
 }
-body h3 {
+body section h3 {
   color: #cfeefc;
   font-family: 'Play', sans-serif;
   font-size: 1.5em;
@@ -66,7 +82,7 @@ body h3 {
   padding: .5em;
   text-align: center;
 }
-body h4 {
+body section h4 {
   color: #cfeefc;
   font-family: 'Play', sans-serif;
   font-size: 1.5em;
@@ -74,15 +90,15 @@ body h4 {
   padding: 1em;
   text-align: center;
 }
-body h5 {
-  color: #cfeefc;
+body section a h5 {
+  color: #fce54a;
   font-family: 'Play', sans-serif;
   font-size: 1.5em;
   line-height: 1.2em;
   padding: .5em;
   text-align: left;
 }
-body h6 {
+body section h6 {
   color: #fce54a;
   font-family: 'Play', sans-serif;
   font-size: 1.5em;
@@ -90,13 +106,21 @@ body h6 {
   padding-bottom: 15px;
   text-align: center;
 }
-body p {
+body section p {
   color: #ffffff;
   font-family: 'Roboto Slab', serif;
   line-height: 2em;
-  padding: .5em 1em;
+  padding: 1em;
 }
-body ul li {
+body section a {
+  display: block;
+  color: #d8cdd3;
+  font-family: 'Roboto Slab', serif;
+  line-height: 1.5em;
+  margin-left: .8em;
+  text-decoration: none;
+}
+body section ul li {
   color: #ffffff;
   font-family: 'Roboto Slab', serif;
   line-height: 1em;
@@ -104,31 +128,32 @@ body ul li {
 }
 body form P {
   clear: both;
-  color: #ed2e28;
+  color: #fce54a;
   font-family: 'Roboto Slab', serif;
   margin-top: 1.5em;
 }
-footer p {
-  color: #ed2e28;
-  text-align: center;
+body form input {
+  margin-left: .9em;
+}
+body form button {
+  font-family: 'Play', sans-serif;
 }
 /* This fills each <div> with the image */
 img {
-  width: 100%;
+  max-width: 100%;
+  margin: auto;
 }
 /* This is the small line after subtitle */
 hr {
-  border: solid 1px #ed2e28;
-  margin-left: auto;
-  margin-right: auto;
+  border: solid 1px #c22024;
+  margin: auto;
   width: 80%;
 }
 .top10 {
   display: block;
-  padding-left: 1em;
 }
 .top10 p {
-  padding: 0;
+  padding-left: .5em;
   font-size: .9em;
 }
 .top10 a {
@@ -137,8 +162,25 @@ hr {
   font-family: 'Roboto Slab', serif;
   padding: .2em;
 }
+footer p {
+  color: #ffffff;
+  background-color: #4f4f4f;
+  font-family: 'Play', sans-serif;
+  text-align: center;
+  padding: 1.1em;
+  line-height: 1.5em;
+  margin-top: 2em;
+}
+footer a {
+  color: #ffffff;
+  font-family: 'Play', sans-serif;
+  text-decoration: none;
+}
+footer i {
+  color: #ffffff;
+}
 .bookCover {
-  padding: .5em;
+  padding: 1em .5em;
 }
 .hidden {
   display: none;
@@ -148,4 +190,40 @@ hr {
   cursor: hand;
 }
 /* Tablet CSS code and up */
+@media only screen and (min-width: 481px) {
+  .top10 {
+    float: left;
+  }
+  .bookList {
+    float: left;
+    margin-top: 1.8em;
+  }
+}
 /* Desktop CSS code and up */
+@media only screen and (min-width: 1025px) {
+  body header {
+    /* Hero Image */
+    background-image: url(../images/purple_space.jpeg);
+    background-size: cover;
+    background-position: center -250px;
+    height: 400px;
+    z-index: 0;
+    /* Title */
+  }
+  body header h1 {
+    font-size: 3em;
+    font-weight: 600;
+    line-height: 2em;
+    padding-top: 140px;
+  }
+  body header p {
+    font-size: 1.5em;
+  }
+  body section a h5 {
+    padding: .8em;
+  }
+  body section p {
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+}
