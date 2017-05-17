@@ -80,6 +80,7 @@ body {
                 line-height: 1.2em;
                 padding: .5em;
                 text-align: left;
+                text-decoration: none;
             }
         }
         h6 {
@@ -197,16 +198,36 @@ footer {
 /* Tablet CSS code and up */
 
 @media only screen and (min-width: 481px) {
-    
+    body {
+        section {
+            p {
+                float: left;
+            }
+        }
+        form {
+            p {
+                margin-top: -2em;
+                margin-bottom: -.5em;
+                margin-left: 1em;
+                text-align: center;
+            }
+            input {
+                margin-left: 2em;
+                clear: both;
+                float: left;
+            }
+            button {
+                float: left;
+                margin-left: .2em;
+            }
+        }
+    }
     .top10 {
         float: left;
     }
     .bookList {
         float: left;
         margin-top: 1.8em;
-        a {
-            
-        }
     }
 }
 
@@ -242,6 +263,11 @@ footer {
             p {
                 font-size: 1em;
                 line-height: 1.5em;
+            }
+        }
+        form {
+            p {
+                margin-top: 1em;
             }
         }
     }

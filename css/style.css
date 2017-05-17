@@ -97,6 +97,7 @@ body section a h5 {
   line-height: 1.2em;
   padding: .5em;
   text-align: left;
+  text-decoration: none;
 }
 body section h6 {
   color: #fce54a;
@@ -191,6 +192,24 @@ footer i {
 }
 /* Tablet CSS code and up */
 @media only screen and (min-width: 481px) {
+  body section p {
+    float: left;
+  }
+  body form p {
+    margin-top: -2em;
+    margin-bottom: -0.5em;
+    margin-left: 1em;
+    text-align: center;
+  }
+  body form input {
+    margin-left: 2em;
+    clear: both;
+    float: left;
+  }
+  body form button {
+    float: left;
+    margin-left: .2em;
+  }
   .top10 {
     float: left;
   }
@@ -225,5 +244,8 @@ footer i {
   body section p {
     font-size: 1em;
     line-height: 1.5em;
+  }
+  body form p {
+    margin-top: 1em;
   }
 }

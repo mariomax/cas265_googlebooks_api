@@ -3,10 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    
+
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <!-- Empty tags! -->
     <title></title>
@@ -14,19 +11,12 @@
     <!-- Google fonts. Headline then Body font. -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
-    
+
     <!-- Font Awesome! -->
     <script src="https://use.fontawesome.com/ef441b60f1.js"></script>
 
     <!-- jQuery Library script. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
-    <!-- Include jQuery (Dependency of jQuery ScrollTo)
-    <script src="https://www.wario.work/jquery-scrollto/vendor/jquery.js"></script>
-    
-    Include jQuery ScrollTo.
-    <script src="https://www.wario.work/jquery-scrollto/lib/jquery-scrollto.js"></script>
-    -->
 
     <!-- Stylesheets in the css folder. -->
     <link href="css/reset.css" rel="stylesheet">
@@ -45,34 +35,37 @@
 
     <!-- Using grid.css here. -->
     <section class="section group">
-        
+
         <!-- The .top10 class styles the following links - not as <li> items! -->
         <div class="col span_3_of_12">
             <div class="top10">
                 <img src="images/star_wars_graphic.jpg" alt="star wars title" width="300" height="181">
                 <h6>Our Top 10 Art books<br>Select a title for info:</h6>
             </div>
+            
             <div class="bookList">
-                <a href="index.html?isbn=1419714007" onclick="scroll('topSection');">Star Wars Art: Posters</a>
-                <a href="index.html?isbn=0810995891">Star Wars Art: Visions</a>
-                <a href="index.html?isbn=1419708651">Star Wars Art: Concept Limited Edition</a>
-                <a href="index.html?isbn=0789434814">Star Wars: The Visual Dictionary</a>
-                <a href="index.html?isbn=0756692482">Star Wars: The Ultimate Visual Guide</a>
-                <a href="index.html?isbn=9780345477620">Star Wars: The Essential Guide to Warfare</a>
-                <a href="index.html?isbn=0345494768">The Making of Star Wars</a>
-                <a href="index.html?isbn=1419707744">Star Wars Storyboards: The Original Trilogy</a>
-                <a href="index.html?isbn=1465452583">Star Wars Year by Year</a>
-                <a href="index.html?isbn=1465435506">LEGO Star Wars Character Encyclopedia</a>
+                <a href="index.html?isbn=1419714007#topSection">Star Wars Art: Posters</a>
+                <a href="index.html?isbn=0810995891#topSection">Star Wars Art: Visions</a>
+                <a href="index.html?isbn=1419708651#topSection">Star Wars Art: Concept Limited Edition</a>
+                <a href="index.html?isbn=0789434814#topSection">Star Wars: The Visual Dictionary</a>
+                <a href="index.html?isbn=0756692482#topSection">Star Wars: The Ultimate Visual Guide</a>
+                <a href="index.html?isbn=9780345477620#topSection">Star Wars: The Essential Guide to Warfare</a>
+                <a href="index.html?isbn=0345494768#topSection">The Making of Star Wars</a>
+                <a href="index.html?isbn=1419707744#topSection">Star Wars Storyboards: The Original Trilogy</a>
+                <a href="index.html?isbn=1465452583#topSection">Star Wars Year by Year</a>
+                <a href="index.html?isbn=1465435506#topSection">LEGO Star Wars Character Encyclopedia</a>
             </div>
+            
             <!-- The form for the user to enter an ISBN into. -->
             <form action="index.html" method="get">
                 <p>Search by ISBN-10 or ISBN-13</p>
                 <input type="text" name="isbn">
                 <button type="submit">Search</button>
             </form>
+            
         </div>
-        
-        <div class="col span_9_of_12"  id="topSection">
+
+        <div class="col span_9_of_12" id="topSection">
             <!-- Look at these empty HTML5 tags! CrAzY!!! -->
             <h2></h2>
             <h3></h3>
@@ -80,7 +73,7 @@
 
             <!-- <hr> hard return HTML5 { @color2; width: 80%; } This is the small line after the textSnippet. -->
             <hr>
-            
+
             <!-- Blank column. -->
             <div class="col span_1_of_12">&nbsp;</div>
             <!-- Image column. -->
@@ -93,7 +86,9 @@
                 <!-- Another little line break. -->
                 <hr>
                 <!-- Hover on "More Info" to reveal in JavaScript -->
-                <a href="#revealInfo" class="point" id="revealInfo"><h5 >More info:</h5></a>
+                <a href="#revealInfo" class="point" id="revealInfo">
+                    <h5 id="infoSection">More info:</h5>
+                </a>
                 <!-- This section is hidden until user clicks the h5 tag above.
                 The IDs below are pulling info from the API database. -->
                 <ul class="hidden" id="addInfo">
@@ -107,20 +102,17 @@
                     <li>ISBN 13: <span id="isbn13"></span></li>
                 </ul>
             </div>
-            
+
         </div>
     </section>
 
     <footer>
         <p>Please, contact us if you are seeking a title you can't find. Thanks!<br>
-        <!-- Functioning email contact. -->
-        <a href="mailto:mariojames211@gmail.com" target="_top"><i class="fa fa-envelope-o" aria-hidden="true"></i>&nbsp;Email</a>
-        &nbsp; 
-        <!-- Functioning phone contact. -->
-        <a href="tel:+5033513640"><i class="fa fa-phone-square" aria-hidden="true"></i>
-        &nbsp;503-351-3640</a><br>
-        Copyright &copy; <span id="cYear"></span> Google Books API</p>
-        <p>This is extra shit - Bootstrap coming up next.</p>
+            <!-- Functioning email contact. -->
+            <a href="mailto:mariojames211@gmail.com" target="_top"><i class="fa fa-envelope-o" aria-hidden="true"></i>&nbsp;Email</a> &nbsp;
+            <!-- Functioning phone contact. -->
+            <a href="tel:+5033513640"><i class="fa fa-phone-square" aria-hidden="true"></i>
+        &nbsp;503-351-3640</a><br> Copyright &copy; <span id="cYear"></span> Google Books API</p>
     </footer>
 
     <script>
@@ -150,17 +142,13 @@
         $("#mRating").text(bookObject.items[0].volumeInfo.maturityRating);
         $("#categories").text(bookObject.items[0].volumeInfo.categories);
 
-        // $('#topSection').ScrollTo();
-        // There are two scripts in the head that are using this.
-        // However, there are "Get" errors in the console. 
-        
-        document.getElementById("topSection").addEventListener("click", scrollWin); 
-        
+        document.getElementById("infoSection").addEventListener("click", scrollWin);
+
         function scrollWin() {
             $('html, body').animate({
-                scrollTop: $("#topSection").offset().top
-                }, 1000);
-            }
+                scrollTop: $("#infoSection").offset().top
+            }, 1000);
+        }
 
         $("#revealInfo").on("click",
             function() {
